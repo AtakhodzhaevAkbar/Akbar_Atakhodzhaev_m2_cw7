@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Akbar_Atakhodzhaev_m2_cw7</string>
+    <string name="EnterLine">0</string>
+    <string name="ACButton">AC</string>
+    <string name="PlusMinusButton">+/-</string>
+    <string name="Precentage">%</string>
+    <string name="Slash">/</string>
+    <string name="Seven">7</string>
+    <string name="Eight">8</string>
+    <string name="Nine">9</string>
+    <string name="Multiplication">X</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="minus">-</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="plus">+</string>
+    <string name="zero">0</string>
+    <string name="floatingPoint">.</string>
+    <string name="equal">=</string>
+</resources>
