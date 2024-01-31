@@ -3,13 +3,16 @@ package com.example.akbar_atakhodzhaev_m2_cw7;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
+    private Button button;
     private TextView textView;
     private Double firstOperand, secondOperand;
     private boolean ifOperationClicked;
@@ -22,10 +25,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.result);
+        button = findViewById(R.id.buttonContinue);
+        button.setVisibility(View.INVISIBLE);
+        button.setOnClickListener(v -> {
+            String result = textView.getText().toString();
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("RESULT",result);
+            startActivity(intent);
+            finish();
+        });
     }
 
     public void onNumberClick(View view) {
+        button.setVisibility(View.INVISIBLE);
         if (view.getId() == R.id.reset) {
             textView.setText("0");
             firstOperand = 0.0;
@@ -50,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void onOperationClick(View view){
+        button.setVisibility(View.INVISIBLE);
         if(view.getId()==R.id.plus){
             String data = textView.getText().toString();
             firstOperand = Double.valueOf(data);
@@ -68,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             division=true;
         }
         else if (view.getId()==R.id.equal){
+            button.setVisibility(View.VISIBLE);
             String data = textView.getText().toString();
             secondOperand = Double.valueOf(data);
             if (plus) {
